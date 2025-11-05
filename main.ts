@@ -2,7 +2,7 @@
  *
  * Created by: Ethan Choy
  * Created on: Sep 2025
- * This program ...
+ * This program uses nested loops to make sprties go around the edge of the microbit.
 */
 
 // setup
@@ -17,15 +17,20 @@ let turn: number = 0
 input.onButtonPressed(Button.A, function() {
     basic.clearScreen()
     sprite = game.createSprite(0, 0)
-    while (sprite1 < 5) {
+    while (sprite1 < 16) {
+        basic.pause(200)
         sprite.move(1)
-        sprite1 = + 1
-        turn = + 1
+        sprite1 = sprite1 + 1
+        turn = turn + 1
+        basic.pause(200)
 
-    while (turn > 5) {
+    while (turn > 3) {
         sprite.turn(Direction.Right, 90)
-        
-    
-    }
-
-})
+        turn = 0
+        }
+    } 
+        sprite.delete()
+        basic.showIcon(IconNames.Happy)
+        sprite1 = 0
+        turn = 0
+    })
